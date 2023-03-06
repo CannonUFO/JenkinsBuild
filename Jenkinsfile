@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        echo '"Init Stage"'
+        echo 'Init Stage'
       }
     }
 
@@ -14,12 +14,13 @@ pipeline {
         OUTPUT_PATH = "${WORKSPACE}\\Artifacts"
       }
       steps {
-        echo '"Build Stage"'
+        echo 'Build Stage'
         sh "C:\\Program Files\\Unity\\Hub\\Editor\\2022.2.8f1\\Editor\\Unity.exe \
-                        -quit -batchmode -projectPath ${PROJECT_PATH} \
-                        -executeMethod BuildTool.BuildProject \
-                        -logFile ${BUILD_LOG_PATH} \
-                        -outputPath ${OUTPUT_PATH}"
+        -quit -batchmode \
+        -projectPath ${PROJECT_PATH} \
+        -executeMethod BuildTool.BuildProject \
+        -logFile ${BUILD_LOG_PATH} \
+        -outputPath ${OUTPUT_PATH}"
       }
     }
 
